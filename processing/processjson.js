@@ -1,6 +1,5 @@
 const fs = require("fs");
 const glob = require("glob");
-const JSZip = require("jszip");
 const { hashElement } = require("folder-hash");
 
 var dir = "./out";
@@ -39,7 +38,7 @@ glob("**/app.json", async function (err, files) {
 
 		let parsed = JSON.parse(filedata);
 		parsed.sha = hash.hash;
-		//console.log(parsed)
+		console.log(file.name + ' added')
 		apps.push(parsed);
 
 		if (fs.existsSync(folder + "/" + parsed.icon)) {
