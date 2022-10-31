@@ -2,7 +2,7 @@ const fs = require("fs");
 const glob = require("glob");
 const { hashElement } = require("folder-hash");
 
-var dir = "./out";
+var dir = "./site/out";
 
 if (!fs.existsSync(dir)) {
 	fs.mkdirSync(dir);
