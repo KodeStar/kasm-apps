@@ -1,0 +1,17 @@
+{
+    "name": "FileZilla",
+    "icon": "filezilla.png",
+    "description": "A free and open-source, cross-platform FTP/FTPS application.",
+    "image": "kasmweb/filezilla:develop",
+    "cores": 2,
+    "memory": 2768,
+    "gpu_count": 0,
+    "cpu_allocation": "inherit",
+    "docker_registry": "https://index.docker.io/v1/",
+    "volume_mappings": {},
+    "config_override": {},
+    "exec_config": {},
+    "categories": [
+      "Productivity"
+    ]
+  }
