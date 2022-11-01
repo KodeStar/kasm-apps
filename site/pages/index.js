@@ -9,6 +9,7 @@ export default function Home() {
   const host = 'http://localhost:3000/'
 
   const [apps, setApps] = useState(null)
+  const [searchText, setSearchText] = useState('')
 
 
   useEffect(() => {
@@ -19,6 +20,25 @@ export default function Home() {
       })
   }, [])
 
+  let filteredapps = apps && apps.apps && apps.apps.length > 0 ? [...apps.apps] : [];
+  const lowerSearch = searchText.toLowerCase();
+  if (searchText !== "") {
+    filteredapps = filteredapps.filter((i) => {
+      const category = i.categories.filter((i) =>
+        i.toLowerCase().includes(lowerSearch)
+      );
+      return (
+        i.name.toLowerCase().includes(lowerSearch) ||
+        category.length > 0
+      );
+    });
+  }
+
+  const changeSearch = event => {
+    setSearchText(event.target.value)
+  }
+
+
   return (
     <div className="">
       <Head>
@@ -27,7 +47,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className="relative animate-[gradient_15s_ease_infinite] overflow-hidden bg-gradient-to-tr from-slate-900 to-cyan-800 p-32 py-16 text-white flex justify-between items-center">
+      <header className="relative overflow-hidden bg-gradient-to-tr from-slate-900 to-cyan-800 p-32 py-16 text-white flex justify-between items-center">
         <Bubbles />
         <div className='relative z-10'>
           <div className="text-7xl">Kasm</div>
@@ -35,7 +55,14 @@ export default function Home() {
         </div>
         <div className="grow flex justify-center relative z-10">
           <div className='bg-cyan-400/50 shadow border border-1 border-white/30 rounded flex w-full max-w-md'>
-            <input name="search" className='bg-transparent shadow-inner text-lg font-light w-full p-4 placeholder:text-white/40' placeholder='Search for application' type="text" />
+            <input
+              name="search" 
+              className='bg-transparent shadow-inner text-lg font-light w-full p-4 placeholder:text-white/40' 
+              placeholder='Search for application' 
+              type="text"
+              value={searchText}
+              onChange={changeSearch}
+              />
 
           </div>
 
@@ -48,11 +75,12 @@ export default function Home() {
 
       <main className="p-20">
         <div className="flex flex-wrap gap-1 justify-center">
-          {apps && apps.apps.map(function (app, i) {
+        {filteredapps && filteredapps.length > 0 && filteredapps.map(function (app, i) {
             return <App key={app.sha} app={app} />
-          })
-
-          }
+          })}
+          {filteredapps && filteredapps.length === 0 && (
+            <p>No applications found {searchText !== '' && ('matching "' + searchText + '"')}</p>
+          )}
         </div>
 
 
