@@ -38,7 +38,7 @@ glob("**/app.json", async function (err, files) {
 
 		let parsed = JSON.parse(filedata);
 		parsed.sha = hash.hash;
-		console.log(file.name + ' added')
+		console.log(parsed.name + ' added')
 		apps.push(parsed);
 
 		if (fs.existsSync(folder + "/" + parsed.icon)) {
