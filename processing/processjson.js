@@ -1,6 +1,7 @@
 const fs = require("fs");
 const glob = require("glob");
 const { hashElement } = require("folder-hash");
+const nextConfig = require("../site/next.config.js")
 
 var dir = "./site/out";
 
@@ -51,7 +52,12 @@ glob("**/app.json", async function (err, files) {
 	}
 
 	let json = {
+		name: nextConfig.env.name,
 		appcount: apptotal,
+		description: nextConfig.env.description,
+		list_url: nextConfig.env.listUrl,
+		contact_url: nextConfig.env.contactUrl,
+		modified: Date.now(),
 		apps: apps,
 	};
 
