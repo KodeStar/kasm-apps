@@ -4,6 +4,7 @@ const nextConfig = {
   env: {
     name: 'Kasm Apps',
     description: 'The official store for Kasm supported applications.',
+    icon: '/img/logo.svg',
     listUrl: 'https://apps.kasmweb.com/list.json',
     contactUrl: 'https://kasmweb.com/support',
   },
