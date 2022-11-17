@@ -52,11 +52,12 @@ glob("**/app.json", async function (err, files) {
 	}
 
 	let json = {
-		name: nextConfig.env.name,
+		name: nextConfig.env.name || 'Unknown store',
 		appcount: apptotal,
-		description: nextConfig.env.description,
-		list_url: nextConfig.env.listUrl,
-		contact_url: nextConfig.env.contactUrl,
+		icon: nextConfig.env.icon || null,
+		description: nextConfig.env.description || null,
+		list_url: nextConfig.env.listUrl || null,
+		contact_url: nextConfig.env.contactUrl || null,
 		modified: Date.now(),
 		apps: apps,
 	};
