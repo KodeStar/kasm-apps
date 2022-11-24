@@ -1,15 +1,15 @@
 {
-    "name": "Ubuntu Focal",
-    "icon": "ubuntu.png",
+    "friendly_name": "Ubuntu Focal",
+    "image_src": "ubuntu.png",
     "description": "Ubuntu is a Linux distribution based on Debian.",
-    "image": "kasmweb/ubuntu-focal-desktop:develop",
+    "name": "kasmweb/ubuntu-focal-desktop:develop",
     "cores": 2,
     "memory": 2768,
     "gpu_count": 0,
-    "cpu_allocation": "inherit",
+    "cpu_allocation_method": "inherit",
     "docker_registry": "https://index.docker.io/v1/",
     "volume_mappings": {},
-    "config_override": {
+    "run_config": {
       "hostname": "kasm"
     },
     "exec_config": {},
