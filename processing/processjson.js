@@ -42,11 +42,11 @@ glob("**/app.json", async function (err, files) {
 		console.log(parsed.name + ' added')
 		apps.push(parsed);
 
-		if (fs.existsSync(folder + "/" + parsed.icon)) {
-			let imagedata = fs.readFileSync(folder + "/" + parsed.icon);
-			fs.writeFileSync(dir + "/icons/" + parsed.icon, imagedata);
+		if (fs.existsSync(folder + "/" + parsed.image_src)) {
+			let imagedata = fs.readFileSync(folder + "/" + parsed.image_src);
+			fs.writeFileSync(dir + "/icons/" + parsed.image_src, imagedata);
 		} else {
-			console.error("missing file: ".folder + "/" + parsed.icon);
+			console.error("missing file: ".folder + "/" + parsed.image_src);
 		}
 
 	}
