@@ -4,10 +4,10 @@ function App({ Component, pageProps, app }) {
             <div className="w-full h-full">
                 <div className="show-grid flex h-full items-center">
                     <div className="kasmcard-img flex h-full mx-4 items-center justify-center">
-                        <img className="w-[50px] max-h-[66px]" src={ 'icons/' + app.icon} />
+                        <img className="w-[50px] max-h-[66px]" src={ 'icons/' + app.image_src} />
                     </div>
                     <div className="kasmcard-detail settingPad">
-                        <h5 className="text-base">{ app.name }</h5>
+                        <h5 className="text-base">{ app.friendly_name }</h5>
                         <p className="text-xs opacity-50">{ app.categories[0] }</p>
                     </div>
                 </div>
