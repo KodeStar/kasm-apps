@@ -1,0 +1,17 @@
+{
+    "name": "Visual Studio Code",
+    "icon": "vs-code.png",
+    "description": "Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications.",
+    "image": "kasmweb/vs-code:develop",
+    "cores": 2,
+    "memory": 2768,
+    "gpu_count": 0,
+    "cpu_allocation": "inherit",
+    "docker_registry": "https://index.docker.io/v1/",
+    "volume_mappings": {},
+    "config_override": {},
+    "exec_config": {},
+    "categories": [
+      "Development"
+    ]
+  }
