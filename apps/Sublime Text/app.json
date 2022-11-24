@@ -1,0 +1,17 @@
+{
+    "name": "Sublime Text",
+    "icon": "sublime-text.png",
+    "description": "Sublime Text is a sophisticated text editor for code, markup and prose.",
+    "image": "kasmweb/sublime-text:develop",
+    "cores": 2,
+    "memory": 2768,
+    "gpu_count": 0,
+    "cpu_allocation": "inherit",
+    "docker_registry": "https://index.docker.io/v1/",
+    "volume_mappings": {},
+    "config_override": {},
+    "exec_config": {},
+    "categories": [
+      "Development"
+    ]
+  }
