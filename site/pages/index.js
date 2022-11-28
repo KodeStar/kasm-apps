@@ -9,8 +9,7 @@ export default function Home() {
   const [apps, setApps] = useState(null)
   const [searchText, setSearchText] = useState('')
 
-  const siteUrl = (typeof window !== "undefined") ? window.location.href : process.env.NEXT_PUBLIC_APPURL;
-  const listUrl = siteUrl + 'list.json'
+  const listUrl = process.env.listUrl;
 
   useEffect(() => {
     fetch('list.json')
