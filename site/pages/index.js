@@ -38,6 +38,15 @@ export default function Home() {
     setSearchText(event.target.value)
   }
 
+  const copyToClipboard = () => {
+    var textField = document.createElement('textarea')
+    textField.innerText = listUrl
+    document.body.appendChild(textField)
+    textField.select()
+    document.execCommand('copy')
+    textField.remove()
+    alert('URL copied to clipboard')
+  }
 
   return (
     <div className="">
@@ -69,7 +78,7 @@ export default function Home() {
         </div>
         <div className='shadow flex flex-col bg-cyan-400/50 border border-1 border-white/30 rounded relative z-10'>
           <div className='flex justify-between text-sm p-2 pb-0'><span className=''>Applications: </span><span className=''>{apps && apps.appcount}</span></div>
-          <button className='p-2 px-5 bg-cyan-500 m-2 rounded items-center pt-1 font-bold text-xs text-white/70 flex cursor-pointer' onClick={() => {navigator.clipboard.writeText(listUrl); alert('URL copied to clipboard')}}><span className="mr-3">Store URL</span><svg style={{ height: '14px', fill: '#fff' }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z"/></svg></button>
+          <button className='p-2 px-5 bg-cyan-500 m-2 rounded items-center pt-1 font-bold text-xs text-white/70 flex cursor-pointer' onClick={() => { copyToClipboard() }}><span className="mr-3">Store URL</span><svg style={{ height: '14px', fill: '#fff' }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z"/></svg></button>
         </div>
       </header >
 
