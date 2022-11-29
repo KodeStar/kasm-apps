@@ -11,6 +11,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   basePath: '/kasm-apps',
+  trailingSlash: true,
   images: {
     unoptimized: true,
   }
