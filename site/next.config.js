@@ -2,7 +2,7 @@
 
 const nextConfig = {
   env: {
-    name: 'Kasm Apps',
+    name: 'Kasm Technologies',
     description: 'The official store for Kasm supported applications.',
     icon: '/img/logo.svg',
     listUrl: 'https://apps.kasmweb.com/list.json',
@@ -10,7 +10,6 @@ const nextConfig = {
   },
   reactStrictMode: true,
   swcMinify: true,
-  basePath: '/kasm-apps',
   images: {
     unoptimized: true,
   }
