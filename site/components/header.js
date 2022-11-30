@@ -21,7 +21,28 @@ export default function Header({ searchText, changeSearch }) {
       <Bubbles />
       <div className='relative z-10'>
         <div className="text-3xl">{process.env.name}</div>
-        <div className="text-sm uppercase"><span className='opacity-70 tracking-[0.4em]'>Application</span> <span className='opacity-50 tracking-[0.4em]'>Database</span></div>
+        <div className="text-sm uppercase w-full flex justify-between">
+          <span className='opacity-70'>A</span>
+          <span className='opacity-70'>p</span>
+          <span className='opacity-70'>p</span>
+          <span className='opacity-70'>l</span>
+          <span className='opacity-70'>i</span>
+          <span className='opacity-70'>c</span>
+          <span className='opacity-70'>a</span>
+          <span className='opacity-70'>t</span>
+          <span className='opacity-70'>i</span>
+          <span className='opacity-70'>o</span>
+          <span className='opacity-70'>n</span>
+          <span>&nbsp;</span>
+          <span className='opacity-40'>D</span>
+          <span className='opacity-40'>a</span>
+          <span className='opacity-40'>t</span>
+          <span className='opacity-40'>a</span>
+          <span className='opacity-40'>b</span>
+          <span className='opacity-40'>a</span>
+          <span className='opacity-40'>s</span>
+          <span className='opacity-40'>e</span>
+        </div>
       </div>
       <nav className='relative z-10 mx-12'>
         <Link href="/" className={'p-4 rounded-full border border-solid' + (router.pathname == "/" ? ' border-white/30' : ' border-transparent')}>Library</Link>
@@ -41,10 +62,10 @@ export default function Header({ searchText, changeSearch }) {
         </div>
 
       </div>
-        <button className='p-4 relative z-10 px-5 bg-emerald-600 m-2 rounded items-center text-white/70 flex cursor-pointer' onClick={() => { copyToClipboard() }}>
-          <span className="mr-3">App Store Link</span>
-          <svg style={{ height: '14px', fill: '#fff' }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z" /></svg>
-        </button>
+      <button className='p-4 relative z-10 px-5 bg-emerald-600 m-2 rounded items-center text-white/70 flex cursor-pointer' onClick={() => { copyToClipboard() }}>
+        <span className="mr-3">App Store Link</span>
+        <svg style={{ height: '14px', fill: '#fff' }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64 160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z" /></svg>
+      </button>
     </header >
 
   )
