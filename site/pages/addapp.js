@@ -198,42 +198,54 @@ function App({ app, icon }) {
   if (icon) {
     const blob = new Blob([icon.file])
     srcBlob = URL.createObjectURL(blob);
+    app.image_src = srcBlob
   }
-
 
   const installButton = () => {
-    return <button className={"text-xs w-full p-4 rounded-lg flex justify-center items-center bg-blue-500 font-bold text-white"}>Install</button>
+    return <button className={"text-xs w-full p-4 py-1 rounded-lg flex justify-center items-center bg-blue-500 font-bold text-white"}>Install</button>
+  }
+  const editButton = () => {
+    return <div className="text-xs text-color w-full p-4 py-1 rounded-lg bg-black/5 flex justify-center items-center">Edit</div>
+  }
+  const official = () => {
+    return
   }
 
+  const appExists = false
+
   return (
-    <div className={"rounded-xl w-full shadow max-w-xs relative overflow-hidden h-[160px] border border-solid flex flex-col justify-between bg-slate-300 border-slate-400/50"}>
-      <div className={"absolute top-0 left-0 right-0 h-[320px] transition-all" + (showDescription ? ' -translate-y-1/2' : '')}>
-        <div className={"h-[160px] p-4"}>
-          <img className="h-[105px] absolute -left-6 -top-4" src={srcBlob} alt={app.friendly_name} />
-          <div className="flex-col pl-20">
+    <div className={"rounded-xl group w-full shadow max-w-xs relative overflow-hidden h-[100px] border border-solid flex flex-col justify-between bg-slate-300 border-slate-400/50"}>
+      <div className={"absolute top-0 left-0 right-0 h-[200px] transition-all" + (showDescription ? ' -translate-y-1/2' : '')}>
+        <div onClick={() => setShowDescription(true)} className={"h-[100px] p-4 relative overflow-hidden cursor-pointer"}>
+          <img className="h-[90px] group-hover:scale-150 transition-all absolute left-2 top-1" src={app.image_src} alt={app.friendly_name} />
+          <div className="flex-col pl-28">
             <div className="font-bold">{app.friendly_name || 'Friendly Name'}</div>
-            <div className="text-xs mb-2 flex gap-2">{process.env.name} </div>
-            <div className="text-[10px] h-8 leading-normal">{app.categories.length > 0 ? app.categories.map(cat => (
-              <span className="p-2 py-0 m-[1px] inline-block rounded bg-black/5">{cat}</span>
-            )) : <span className="p-2 py-0 m-[1px] inline-block rounded bg-black/5">categories</span>}</div>
+            <div className="text-xs mb-2 flex gap-2">{app.author || 'Unknown'} <span>{official()}</span></div>
+            <div className=" h-8"></div>
           </div>
-          <div className="flex mt-1 gap-2 items-center">
-            {installButton()}
-            <div>
-              <button className="flex w-8 h-8 bg-slate-100 justify-center rounded-full items-center" onClick={() => setShowDescription(true)}>
-                  <svg style={{ height: '14px'}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path d="M144 80c0 26.5-21.5 48-48 48s-48-21.5-48-48s21.5-48 48-48s48 21.5 48 48zM0 224c0-17.7 14.3-32 32-32H96c17.7 0 32 14.3 32 32V448h32c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H64V256H32c-17.7 0-32-14.3-32-32z" /></svg>
-              </button>
-            </div>
+
+          <div className="absolute bottom-0 left-0 right-0 bg-slate-400/20 h-8 text-[10px] flex items-center justify-center">
+            {app.categories.map(cat => (
+              <span className="p-2 py-0 m-[1px] inline-block rounded bg-slate-300/90">{cat}</span>
+            ))}
           </div>
+          {appExists && appExists.enabled === true && appExists.available === false && (
+            <div className="absolute inset-0 flex justify-center items-center bg-slate-600/70 text-white"><i className="fa fa-spinner fa-spin mr-3"></i> Installing</div>
+          )}
         </div>
-        <div className="h-[160px] text-xs relative p-8">
+        <div className="h-[100px] text-xs relative p-2 pl-4 flex">
           <button className="absolute right-2 top-2 bg-slate-100 rounded-full flex justify-center items-center h-6 w-6" onClick={() => setShowDescription(false)}>
-          <svg style={{ height: '14px'}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/></svg>
+          <svg style={{ height: '14px'}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/></svg>  
           </button>
-          {app.description}
+          <div className="flex flex-col flex-grow"><div className="font-bold">{app.friendly_name}</div> {app.description}</div>
+          <div className="flex flex-col justify-end gap-1">
+            {editButton()}
+            {installButton()}
+          </div>
         </div>
       </div>
     </div>
   )
+
 }
 
